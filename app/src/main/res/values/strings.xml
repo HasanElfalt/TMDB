@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TMDB</string>
+    <string name="movies">Movies</string>
+    <string name="movie_poster">Movie Poster</string>
+</resources>
