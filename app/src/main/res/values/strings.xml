@@ -2,4 +2,9 @@
     <string name="app_name">TMDB</string>
     <string name="movies">Movies</string>
     <string name="movie_poster">Movie Poster</string>
+    <string name="overview">Overview:</string>
+    <string name="tagLine">Tagline:</string>
+    <string name="status">Status</string>
+    <string name="releaseDate">Release Date</string>
+    <string name="voteAverage">Vote Average</string>
 </resources>

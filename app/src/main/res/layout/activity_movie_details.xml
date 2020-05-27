@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/moviesBackground"
+    tools:context=".MovieDetailsActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/backdrop_path"
+            android:minHeight="260dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="50dp"
+            tools:src="@drawable/ic_launcher_background"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/poster_path"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/overview"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_margin="20dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:id="@+id/movie_name"
+            app:layout_constraintStart_toEndOf="@id/poster_path"
+            app:layout_constraintTop_toTopOf="@id/poster_path"
+            tools:text="movie Name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/overview"
+            android:id="@+id/overview"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingTop="12dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/backdrop_path"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="overview Details"
+            android:minLines="5"
+            android:id="@+id/overview_detail"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/overview"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/tagLine"
+            android:id="@+id/tagLine"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/overview_detail"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="tagLine Details"
+            android:id="@+id/tagLineDetails"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/tagLine"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/status"
+            android:id="@+id/status"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/tagLineDetails"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="status"
+            android:id="@+id/statusDetails"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/status"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/releaseDate"
+            android:id="@+id/releaseDate"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/statusDetails"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="release date"
+            android:id="@+id/releaseDateDetails"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/releaseDate"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="@string/voteAverage"
+            android:id="@+id/vote_average"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/releaseDateDetails"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            tools:text="7.1"
+            android:id="@+id/vote_average_detail"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintStart_toStartOf="@id/poster_path"
+            app:layout_constraintTop_toBottomOf="@id/vote_average"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
