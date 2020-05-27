@@ -7,13 +7,51 @@
     tools:context=".MoviesActivity"
     android:background="@color/moviesBackground">
 
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="@string/popular"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/popular_tab"
+        android:background="@color/colorSurfaceDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/top_Rated_tab"
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="@string/top_rated"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/top_Rated_tab"
+        android:background="@color/colorSurfaceDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/popular_tab"
+        app:layout_constraintEnd_toStartOf="@id/Now_Playing_tab"
+        />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="@string/now_playing"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/Now_Playing_tab"
+        android:background="@color/colorSurfaceDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/top_Rated_tab"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/movieRecyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_Rated_tab"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_list_movies_content"
         />
 

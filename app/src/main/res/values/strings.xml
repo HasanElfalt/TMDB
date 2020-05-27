@@ -7,4 +7,10 @@
     <string name="status">Status</string>
     <string name="releaseDate">Release Date</string>
     <string name="voteAverage">Vote Average</string>
+    <string name="title_activity_movie">Movie</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="popular">Popular</string>
+    <string name="now_playing">Now Playing</string>
 </resources>

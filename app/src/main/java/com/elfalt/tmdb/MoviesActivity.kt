@@ -17,12 +17,29 @@ class MoviesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
+        getRecyclerViewDate(R.id.popular_tab)
 
-        ///////////////////////////////////////////////////////////
+        popular_tab.setOnClickListener { getRecyclerViewDate(R.id.popular_tab) }
+
+        top_Rated_tab.setOnClickListener { getRecyclerViewDate(R.id.top_Rated_tab) }
+
+        Now_Playing_tab.setOnClickListener {  getRecyclerViewDate(R.id.Now_Playing_tab) }
+
+
+    }
+    fun getRecyclerViewDate(id : Int){
 
         val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
+        var call : Call<MovieResponse> = apiInterface.getMovie(api_key)
 
-        val call = apiInterface.getMovie(api_key)
+        when(id){
+
+            R.id.popular_tab -> call = apiInterface.getMovie(api_key)
+
+            R.id.top_Rated_tab -> call = apiInterface.getMovieTopRated(api_key)
+
+            R.id.Now_Playing_tab -> call = apiInterface.getMovieNowPlaying(api_key)
+        }
 
         call.enqueue(object : retrofit2.Callback<MovieResponse> {
 
@@ -44,15 +61,12 @@ class MoviesActivity : AppCompatActivity() {
 
         })
 
-
-        ///////////////////////////////////////////////////////////
-
-
     }
 
     private fun populateMovieRecycler(moviesList: List<Movie>) {
         movieRecyclerView.layoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
         movieRecyclerView.adapter = MoviesAdapter(moviesList)
+
     }
 
     companion object {
