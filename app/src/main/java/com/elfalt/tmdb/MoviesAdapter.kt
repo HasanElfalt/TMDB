@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.elfalt.tmdb.Ret.Movie
+import com.elfalt.tmdb.ui.MovieDetailsActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list_movies_content.view.*
 
@@ -49,7 +50,7 @@ class MoviesAdapter(val moviesList : List<Movie>) :
         init {
             itemView.setOnClickListener{
 
-                val movieDetailsIntent = Intent(it.context, MovieDetailsActivity :: class.java)
+                val movieDetailsIntent = Intent(it.context, MovieDetailsActivity:: class.java)
                 movieDetailsIntent.putExtra("id",itemView.movieId.text)
                 startActivity(it.context,movieDetailsIntent,null)
 

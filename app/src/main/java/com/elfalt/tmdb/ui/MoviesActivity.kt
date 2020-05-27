@@ -1,9 +1,11 @@
-package com.elfalt.tmdb
+package com.elfalt.tmdb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
+import com.elfalt.tmdb.MoviesAdapter
+import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.APIClient
 import com.elfalt.tmdb.Ret.ApiInterface
 import com.elfalt.tmdb.Ret.Movie
@@ -34,11 +36,17 @@ class MoviesActivity : AppCompatActivity() {
 
         when(id){
 
-            R.id.popular_tab -> call = apiInterface.getMovie(api_key)
+            R.id.popular_tab -> call = apiInterface.getMovie(
+                api_key
+            )
 
-            R.id.top_Rated_tab -> call = apiInterface.getMovieTopRated(api_key)
+            R.id.top_Rated_tab -> call = apiInterface.getMovieTopRated(
+                api_key
+            )
 
-            R.id.Now_Playing_tab -> call = apiInterface.getMovieNowPlaying(api_key)
+            R.id.Now_Playing_tab -> call = apiInterface.getMovieNowPlaying(
+                api_key
+            )
         }
 
         call.enqueue(object : retrofit2.Callback<MovieResponse> {

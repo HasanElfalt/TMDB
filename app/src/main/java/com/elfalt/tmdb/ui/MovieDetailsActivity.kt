@@ -1,12 +1,12 @@
-package com.elfalt.tmdb
+package com.elfalt.tmdb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import com.elfalt.tmdb.MoviesAdapter
+import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.APIClient
 import com.elfalt.tmdb.Ret.ApiInterface
-import com.elfalt.tmdb.Ret.MovieResponse
 import com.elfalt.tmdb.Ret.MovieResponseDetails
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
@@ -28,7 +28,8 @@ class MovieDetailsActivity : AppCompatActivity() {
 
 
         val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
-        val call = apiInterface.getMovieDetails(movieId,MoviesActivity.api_key)
+        val call = apiInterface.getMovieDetails(movieId,
+            MoviesActivity.api_key)
 
         call.enqueue(object : retrofit2.Callback<MovieResponseDetails> {
 
