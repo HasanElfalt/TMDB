@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_shw_title"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:padding="6dp"
+        android:minLines="3"
+        tools:text="Snowpiercer"
+        app:layout_constraintStart_toStartOf="@id/tv_show_poster"
+        app:layout_constraintEnd_toEndOf="@id/tv_show_poster"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:id="@+id/tv_show_poster"
+        app:layout_constraintTop_toBottomOf="@id/tv_shw_title"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/ic_launcher_background"
+        android:contentDescription="@string/tv_show_poster" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_id"
+        android:visibility="gone"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="id"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

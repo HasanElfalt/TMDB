@@ -19,4 +19,11 @@ interface ApiInterface {
     @GET("/3/movie/{id}")
     fun getMovieDetails(@Path("id") id : String, @Query ("api_key") api_key: String) : Call<MovieResponseDetails>
 
+    @GET("/3/tv/{type}")
+    fun getTvShow(@Path("type") type: String, @Query("api_key") api_key : String) : Call<TvResponse>
+
+    @GET("/3/tv/{id}")
+    fun getTvShowDetails(@Path("id") id : String, @Query ("api_key") api_key: String) : Call<TvResponseDetails>
+
+
 }

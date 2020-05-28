@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/black"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.TvShowActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/background"
+            android:scaleType="centerCrop"
+            android:id="@+id/Wallpaper"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_vertical_line"
+            android:id="@+id/vertical_line"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Wallpaper"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/popular"
+            android:textColor="@color/textYellow"
+            android:id="@+id/popular_text"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/vertical_line"
+            app:layout_constraintStart_toEndOf="@id/vertical_line"
+            app:layout_constraintBottom_toBottomOf="@id/vertical_line"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:id="@+id/popular_recycler"
+            app:layout_constraintTop_toBottomOf="@id/popular_text"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_list_tv"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_vertical_line"
+            android:id="@+id/vertical_line_2"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popular_recycler"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/top_rated"
+            android:textColor="@color/textYellow"
+            android:id="@+id/top_rated_text"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/vertical_line_2"
+            app:layout_constraintStart_toEndOf="@id/vertical_line_2"
+            app:layout_constraintBottom_toBottomOf="@id/vertical_line_2"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/top_rated_recycler"
+            app:layout_constraintTop_toBottomOf="@id/top_rated_text"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_list_tv"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_vertical_line"
+            android:id="@+id/vertical_line_3"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_rated_recycler"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_the_air"
+            android:textColor="@color/textYellow"
+            android:id="@+id/on_the_air_text"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/vertical_line_3"
+            app:layout_constraintStart_toEndOf="@id/vertical_line_3"
+            app:layout_constraintBottom_toBottomOf="@id/vertical_line_3"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/on_the_air_recycler"
+            app:layout_constraintTop_toBottomOf="@id/on_the_air_text"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_list_tv"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_vertical_line"
+            android:id="@+id/vertical_line_4"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/on_the_air_recycler"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/airing_today"
+            android:textColor="@color/textYellow"
+            android:id="@+id/airing_today_text"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/vertical_line_4"
+            app:layout_constraintStart_toEndOf="@id/vertical_line_4"
+            app:layout_constraintBottom_toBottomOf="@id/vertical_line_4"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/airing_today_recycler"
+            app:layout_constraintTop_toBottomOf="@id/airing_today_text"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_list_tv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

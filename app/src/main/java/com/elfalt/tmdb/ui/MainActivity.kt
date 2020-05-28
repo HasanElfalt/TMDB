@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
             val moviesIntent = Intent(this, MoviesActivity:: class.java)
             startActivity(moviesIntent)
         }
+        tv_show.setOnClickListener {
+            val tvShowIntent = Intent(this, TvShowActivity:: class.java)
+            startActivity(tvShowIntent)
+        }
     }
 
 }

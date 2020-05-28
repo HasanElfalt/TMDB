@@ -16,15 +16,12 @@ import retrofit2.Response
 class MovieDetailsActivity : AppCompatActivity() {
 
     lateinit var movieId: String
-    //const val BASE_POSTER_URL =
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
         movieId = intent.getStringExtra("id")
-
-        //Toast.makeText(this,"movie id = $movieId " , Toast.LENGTH_LONG).show()
 
 
         val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)

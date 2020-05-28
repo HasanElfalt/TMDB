@@ -11,11 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.TvDetailsActivity"></activity>
         <activity
-            android:name=".Movie"
-            android:label="@string/title_activity_movie"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.MovieDetailsActivity" />
+            android:name=".ui.TvShowActivity"
+            android:label="@string/tv_show" />
+        <activity
+            android:name=".ui.MovieDetailsActivity"
+            android:label="@string/Movie_Detail" />
         <activity
             android:name=".ui.MoviesActivity"
             android:label="@string/movies" />

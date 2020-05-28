@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.elfalt.tmdb.MoviesAdapter
 import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.APIClient
@@ -21,15 +22,16 @@ class MoviesActivity : AppCompatActivity() {
         setContentView(R.layout.activity_movies)
         getRecyclerViewDate(R.id.popular_tab)
 
-        popular_tab.setOnClickListener { getRecyclerViewDate(R.id.popular_tab) }
+        popular_tab.setOnClickListener {
+            getRecyclerViewDate(R.id.popular_tab)
+        }
 
         top_Rated_tab.setOnClickListener { getRecyclerViewDate(R.id.top_Rated_tab) }
 
         Now_Playing_tab.setOnClickListener {  getRecyclerViewDate(R.id.Now_Playing_tab) }
 
-
     }
-    fun getRecyclerViewDate(id : Int){
+    private fun getRecyclerViewDate(id : Int){
 
         val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
         var call : Call<MovieResponse> = apiInterface.getMovie(api_key)

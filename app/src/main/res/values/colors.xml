@@ -7,6 +7,8 @@
 
     <color name="moviesBackground" >#33242c</color>
 
+   <color name= "textYellow">#F0F000</color>
+
     <color name="colorPrimary">#263238</color>
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorSurface">#455a64</color>
