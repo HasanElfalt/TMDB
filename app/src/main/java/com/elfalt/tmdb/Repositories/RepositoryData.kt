@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.elfalt.tmdb.AppConstants
+import com.elfalt.tmdb.AppConstants.Companion.API_KEY
 import com.elfalt.tmdb.Ret.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,6 +16,7 @@ object RepositoryData {
 
     val movies : MutableLiveData<List<Movie>> by lazy { MutableLiveData<List<Movie>>() }
     val movieDetails : MutableLiveData<MovieResponseDetails> by lazy { MutableLiveData<MovieResponseDetails>() }
+    val tvShowDetails : MutableLiveData<TvResponseDetails> by lazy { MutableLiveData<TvResponseDetails>() }
 
     private val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
 
@@ -74,6 +76,32 @@ object RepositoryData {
 
         })
         return movieDetails
+    }
+
+    fun getTvShowsDetails(tvId : String) : MutableLiveData<TvResponseDetails>{
+
+        val call = apiInterface.getTvShowDetails(tvId, API_KEY)
+
+        call.enqueue(object : retrofit2.Callback<TvResponseDetails> {
+
+            override fun onResponse(
+                call: Call<TvResponseDetails>,
+                response: Response<TvResponseDetails>) {
+
+                if(response.isSuccessful){
+
+                    tvShowDetails.postValue(response.body()!!)
+
+                }
+            }
+
+            override fun onFailure(call: Call<TvResponseDetails>, t: Throwable) {
+
+                Log.e("Failure",t.message)
+            }
+
+        })
+        return tvShowDetails
     }
 
 }

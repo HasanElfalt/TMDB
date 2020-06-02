@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.elfalt.tmdb.Repositories.RepositoryData
 import com.elfalt.tmdb.Ret.Movie
 import com.elfalt.tmdb.Ret.MovieResponseDetails
+import com.elfalt.tmdb.Ret.TvResponseDetails
 
 class MovieViewModel : ViewModel() {
 
@@ -14,6 +15,10 @@ class MovieViewModel : ViewModel() {
 
     fun getMovieDetails(movieId : String) : LiveData<MovieResponseDetails>{
         return RepositoryData.getMovieDetail(movieId)
+    }
+
+    fun getTvShowDetails(tvId : String): LiveData<TvResponseDetails>{
+        return RepositoryData.getTvShowsDetails(tvId)
     }
 
 }
