@@ -7,7 +7,7 @@ import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.APIClient
 import com.elfalt.tmdb.Ret.ApiInterface
 import com.elfalt.tmdb.Ret.TvResponseDetails
-import com.elfalt.tmdb.TvShowAdapter
+import com.elfalt.tmdb.adapters.TvShowAdapter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_tv_details.*
 import retrofit2.Call

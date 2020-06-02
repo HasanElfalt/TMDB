@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.elfalt.tmdb.AppConstants
 import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.*
-import com.elfalt.tmdb.TvShowAdapter
+import com.elfalt.tmdb.adapters.TvShowAdapter
 import kotlinx.android.synthetic.main.activity_tv_show.*
 import retrofit2.Call
 import retrofit2.Response

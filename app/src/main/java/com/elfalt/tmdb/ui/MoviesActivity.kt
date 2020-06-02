@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.elfalt.tmdb.AppConstants
-import com.elfalt.tmdb.MoviesAdapter
+import com.elfalt.tmdb.adapters.MoviesAdapter
 import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.Movie
 import kotlinx.android.synthetic.main.activity_movies.*
@@ -59,7 +59,8 @@ class MoviesActivity : AppCompatActivity() {
 
     private fun populateMovieRecycler(moviesList: List<Movie>) {
 
-        movieRecyclerView.adapter = MoviesAdapter(moviesList)
+        movieRecyclerView.adapter =
+            MoviesAdapter(moviesList)
 
     }
 

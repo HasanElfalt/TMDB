@@ -1,4 +1,4 @@
-package com.elfalt.tmdb
+package com.elfalt.tmdb.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.TvShow
 import com.elfalt.tmdb.ui.TvDetailsActivity
 import com.squareup.picasso.Picasso
