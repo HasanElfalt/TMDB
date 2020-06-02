@@ -2,79 +2,63 @@ package com.elfalt.tmdb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.elfalt.tmdb.AppConstants
 import com.elfalt.tmdb.MoviesAdapter
 import com.elfalt.tmdb.R
-import com.elfalt.tmdb.Ret.APIClient
-import com.elfalt.tmdb.Ret.ApiInterface
 import com.elfalt.tmdb.Ret.Movie
-import com.elfalt.tmdb.Ret.MovieResponse
 import kotlinx.android.synthetic.main.activity_movies.*
-import retrofit2.Call
-import retrofit2.Response
 
 class MoviesActivity : AppCompatActivity() {
+
+    private lateinit var moviesViewModel: MovieViewModel
+    private var tTemp:String = "popular"
+    private var tbool : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
-        getRecyclerViewDate(R.id.popular_tab)
+
+        moviesViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+
+        movieRecyclerView.layoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
+
+        getRecyclerViewData(R.id.popular_tab)
 
         popular_tab.setOnClickListener {
-            getRecyclerViewDate(R.id.popular_tab)
+            getRecyclerViewData(R.id.popular_tab)
         }
 
-        top_Rated_tab.setOnClickListener { getRecyclerViewDate(R.id.top_Rated_tab) }
+        top_Rated_tab.setOnClickListener { getRecyclerViewData(R.id.top_Rated_tab) }
 
-        Now_Playing_tab.setOnClickListener {  getRecyclerViewDate(R.id.Now_Playing_tab) }
+        Now_Playing_tab.setOnClickListener {  getRecyclerViewData(R.id.Now_Playing_tab) }
+
 
     }
-    private fun getRecyclerViewDate(id : Int){
+    private fun getRecyclerViewData(id : Int){
 
-        val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
-        var call : Call<MovieResponse> = apiInterface.getMovie(api_key)
+        val type : String = when(id){
 
-        when(id){
+            R.id.popular_tab ->  AppConstants.POPULAR
 
-            R.id.popular_tab -> call = apiInterface.getMovie(
-                api_key
-            )
+            R.id.top_Rated_tab -> AppConstants.TOP_RATED
 
-            R.id.top_Rated_tab -> call = apiInterface.getMovieTopRated(
-                api_key
-            )
-
-            R.id.Now_Playing_tab -> call = apiInterface.getMovieNowPlaying(
-                api_key
-            )
+            else -> AppConstants.NOW_PLAYING
         }
 
-        call.enqueue(object : retrofit2.Callback<MovieResponse> {
-
-            override fun onResponse(
-                call: Call<MovieResponse>,
-                response: Response<MovieResponse>
-            ) {
-
-                if(response.isSuccessful){
-                    val movieList = response.body()!!.results
-                    populateMovieRecycler(movieList)
-                }
-            }
-
-            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-
-                Log.e("Failure",t.message)
-            }
-
+        if(type != tTemp) {
+            tbool = 1
+            tTemp = type
+        }
+        moviesViewModel.getMovies(type,tbool).observe(this, Observer {
+            populateMovieRecycler(it)
         })
-
     }
 
     private fun populateMovieRecycler(moviesList: List<Movie>) {
-        movieRecyclerView.layoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
+
         movieRecyclerView.adapter = MoviesAdapter(moviesList)
 
     }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.elfalt.tmdb.AppConstants
 import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.*
 import com.elfalt.tmdb.TvShowAdapter
@@ -18,13 +19,13 @@ class TvShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_show)
 
-        getRecyclerViewData(POPULAR)
+        getRecyclerViewData(AppConstants.POPULAR)
 
-        getRecyclerViewData(TOP_RATED)
+        getRecyclerViewData(AppConstants.TOP_RATED)
 
-        getRecyclerViewData(ON_THE_AIR)
+        getRecyclerViewData(AppConstants.ON_THE_AIR)
 
-        getRecyclerViewData(AIRING_TODAY)
+        getRecyclerViewData(AppConstants.AIRING_TODAY)
 
     }
 
@@ -45,10 +46,10 @@ class TvShowActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     val tvShowList = response.body()!!.results
 
-                    if(type == POPULAR)   populateTvShowRecycler(tvShowList, popular_recycler)
-                    else if (type == TOP_RATED)   populateTvShowRecycler(tvShowList, top_rated_recycler)
-                    else if (type == ON_THE_AIR)   populateTvShowRecycler(tvShowList, on_the_air_recycler)
-                    else if (type == AIRING_TODAY)   populateTvShowRecycler(tvShowList, airing_today_recycler)
+                    if(type == AppConstants.POPULAR)   populateTvShowRecycler(tvShowList, popular_recycler)
+                    else if (type == AppConstants.TOP_RATED)   populateTvShowRecycler(tvShowList, top_rated_recycler)
+                    else if (type == AppConstants.ON_THE_AIR)   populateTvShowRecycler(tvShowList, on_the_air_recycler)
+                    else if (type == AppConstants.AIRING_TODAY)   populateTvShowRecycler(tvShowList, airing_today_recycler)
                 }
             }
 
@@ -64,12 +65,6 @@ class TvShowActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         recyclerView.adapter = TvShowAdapter(tvShowList)
 
-    }
-    companion object{
-        const val POPULAR     = "popular"
-        const val TOP_RATED   = "top_rated"
-        const val ON_THE_AIR  = "on_the_air"
-        const val AIRING_TODAY= "airing_today"
     }
 
 }
