@@ -3,6 +3,8 @@ package com.elfalt.tmdb.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.elfalt.tmdb.MoviesAdapter
 import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.APIClient
@@ -15,49 +17,33 @@ import retrofit2.Response
 
 class MovieDetailsActivity : AppCompatActivity() {
 
+    private lateinit var movieViewModel : MovieViewModel
     lateinit var movieId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+
         movieId = intent.getStringExtra("id")
 
+        movieViewModel.getMovieDetails(movieId).observe(this, Observer {
 
-        val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
-        val call = apiInterface.getMovieDetails(movieId,
-            MoviesActivity.api_key)
+            Picasso.get().load(MoviesAdapter.BASE_IMAGE_URL + it.backdrop_path)
+                .into(backdrop_path)
 
-        call.enqueue(object : retrofit2.Callback<MovieResponseDetails> {
+            Picasso.get().load(MoviesAdapter.BASE_IMAGE_URL + it.poster_path)
+                .into(poster_path)
 
-            override fun onResponse(
-                call: Call<MovieResponseDetails>,
-                response: Response<MovieResponseDetails>) {
-
-                if(response.isSuccessful){
-
-                    val res = response.body()!!
-                    Picasso.get().load(MoviesAdapter.BASE_IMAGE_URL + res.backdrop_path)
-                        .into(backdrop_path)
-
-                    Picasso.get().load(MoviesAdapter.BASE_IMAGE_URL + res.poster_path)
-                        .into(poster_path)
-
-                    movie_name.text = res.original_title
-                    overview_detail.text = res.overview
-                    tagLineDetails.text = res.tagline
-                    statusDetails.text = res.status
-                    releaseDateDetails.text = res.release_date
-                    vote_average_detail.text = res.vote_average.toString()
-
-                }
-            }
-
-            override fun onFailure(call: Call<MovieResponseDetails>, t: Throwable) {
-
-                Log.e("Failure",t.message)
-            }
+            movie_name.text = it.original_title
+            overview_detail.text = it.overview
+            tagLineDetails.text = it.tagline
+            statusDetails.text = it.status
+            releaseDateDetails.text = it.release_date
+            vote_average_detail.text = it.vote_average.toString()
 
         })
+
     }
 }

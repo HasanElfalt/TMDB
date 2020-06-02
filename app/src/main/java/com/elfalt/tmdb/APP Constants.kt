@@ -9,5 +9,6 @@ class AppConstants {
         const val TOP_RATED = "top_rated"
         const val AIRING_TODAY = "airing_today"
         const val NOW_PLAYING = "now_playing"
+        const val API_KEY = "0948e9d82b480fe80240ad8610c1d77b"
     }
 }
