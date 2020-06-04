@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.elfalt.tmdb.AppConstants
-import com.elfalt.tmdb.AppConstants.Companion.API_KEY
 import com.elfalt.tmdb.Ret.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -80,7 +79,7 @@ object RepositoryData {
 
     fun getTvShowsDetails(tvId : String) : MutableLiveData<TvResponseDetails>{
 
-        val call = apiInterface.getTvShowDetails(tvId, API_KEY)
+        val call = apiInterface.getTvShowDetails(tvId, AppConstants.API_KEY)
 
         call.enqueue(object : retrofit2.Callback<TvResponseDetails> {
 
