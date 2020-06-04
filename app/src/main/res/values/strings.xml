@@ -19,4 +19,5 @@
     <string name="on_the_air">On TV</string>
     <string name="airing_today">Airing Today</string>
     <string name="first_air_date">First Air Date</string>
+    <string name="tmdb_logo">TMDB Logo</string>
 </resources>

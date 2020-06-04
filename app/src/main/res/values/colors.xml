@@ -3,15 +3,17 @@
    <color name="anotherColorPrimary">#6200EE</color>
     <color name="anotherColorPrimaryDark">#3700B3</color>
 
+ 
+ 
     <color name="colorAccent">#03DAC5</color>
-
     <color name="moviesBackground" >#33242c</color>
-
    <color name= "textYellow">#F0F000</color>
-
     <color name="colorPrimary">#263238</color>
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorSurface">#455a64</color>
+    <color name="DarkBlue">#0d253f</color>
+ 
+ 
     <color name="colorSurfaceDark">#263238</color>
     <color name="colorSurfaceLight">#607d8b</color>
     <color name="textOnSurfaceHighEmphasis">#ffffff</color>

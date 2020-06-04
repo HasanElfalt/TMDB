@@ -10,5 +10,6 @@ class AppConstants {
         const val AIRING_TODAY = "airing_today"
         const val NOW_PLAYING = "now_playing"
         const val API_KEY = BuildConfig.API_KEY
+        const val SPLASH_TIMED_OUT : Long = 4000
     }
 }
