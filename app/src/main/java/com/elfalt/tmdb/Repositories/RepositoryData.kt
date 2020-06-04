@@ -12,17 +12,22 @@ import retrofit2.Response
 object RepositoryData {
 
     private lateinit var moviesList : List<Movie>
+    private lateinit var tvShowList  : List<TvShow>
 
     val movies : MutableLiveData<List<Movie>> by lazy { MutableLiveData<List<Movie>>() }
     val movieDetails : MutableLiveData<MovieResponseDetails> by lazy { MutableLiveData<MovieResponseDetails>() }
     val tvShowDetails : MutableLiveData<TvResponseDetails> by lazy { MutableLiveData<TvResponseDetails>() }
+    val tvShowsPopular : MutableLiveData<List<TvShow>> by lazy { MutableLiveData<List<TvShow>>() }
+    val tvShowsTopRated : MutableLiveData<List<TvShow>> by lazy { MutableLiveData<List<TvShow>>() }
+    val tvShowsOnTheAir : MutableLiveData<List<TvShow>> by lazy { MutableLiveData<List<TvShow>>() }
+    val tvShowsAiring : MutableLiveData<List<TvShow>> by lazy { MutableLiveData<List<TvShow>>() }
 
     private val apiInterface = APIClient.getRetrofit().create(ApiInterface::class.java)
 
 
     fun getMovies(movieType : String,tBool : Int) : LiveData<List<Movie>>{
 
-        if(!this::moviesList.isInitialized || tBool==1) {
+        if(!this::moviesList.isInitialized || tBool==1 ) {
 
             val call: Call<MovieResponse> = apiInterface.getMovie(movieType, AppConstants.API_KEY)
 
@@ -75,6 +80,41 @@ object RepositoryData {
 
         })
         return movieDetails
+    }
+
+    fun getTvShows(tvType : String) : MutableLiveData<List<TvShow>>{
+
+        val call : Call<TvResponse> = apiInterface.getTvShow(tvType, AppConstants.API_KEY)
+
+        call.enqueue(object : Callback<TvResponse> {
+
+            override fun onResponse(
+                call: Call<TvResponse>,
+                response: Response<TvResponse>) {
+
+                if(response.isSuccessful){
+
+                    tvShowList = response.body()!!.results
+
+                    if(tvType == AppConstants.POPULAR)   { tvShowsPopular.postValue(tvShowList) }
+                    else if (tvType == AppConstants.TOP_RATED){ tvShowsTopRated.postValue(tvShowList) }
+                    else if (tvType == AppConstants.ON_THE_AIR){ tvShowsOnTheAir.postValue(tvShowList) }
+                    else { tvShowsAiring.postValue(tvShowList) }
+                }
+            }
+
+            override fun onFailure(call: Call<TvResponse>, t: Throwable) {
+
+                Log.e("Failure",t.message)
+            }
+
+        })
+        return when(tvType){
+            AppConstants.POPULAR -> tvShowsPopular
+            AppConstants.TOP_RATED -> tvShowsTopRated
+            AppConstants.ON_THE_AIR -> tvShowsOnTheAir
+            else -> tvShowsAiring
+        }
     }
 
     fun getTvShowsDetails(tvId : String) : MutableLiveData<TvResponseDetails>{

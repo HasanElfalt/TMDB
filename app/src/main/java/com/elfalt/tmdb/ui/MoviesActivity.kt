@@ -64,7 +64,4 @@ class MoviesActivity : AppCompatActivity() {
 
     }
 
-    companion object {
-        const val api_key : String = "0948e9d82b480fe80240ad8610c1d77b"
-    }
 }
