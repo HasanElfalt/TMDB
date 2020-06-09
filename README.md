@@ -16,3 +16,22 @@ with the help of TMDB (The Movie DataBase) API.
 - Uses Picasso for image loading.
 
 ## Screenshots
+<img src="ScreenShots/Screenshot_2020-06-09-12-35-22.png" width="300" Height="500">
+<img src="ScreenShots/Screenshot_2020-06-09-12-36-08.png" width="300" Height="500">
+<img src="ScreenShots/Screenshot_2020-06-09-12-36-14.png" width="300" Height="500">
+<img src="ScreenShots/Screenshot_2020-06-09-12-36-29.png" width="300" Height="500">
+<img src="ScreenShots/Screenshot_2020-06-09-12-36-57.png" width="300" Height="500">
+<img src="ScreenShots/Screenshot_2020-06-09-12-37-02.png" width="300" Height="500">
+<img src="ScreenShots/Screenshot_2020-06-09-12-38-03.png" width="300" Height="500">
+
+## Configuration
+In order to run this application, you need to get your own key from TMDb. You can do that by clicking [here](https://www.themoviedb.org/account/signup).
+
+After you get an API key, put that key in ```gradle.properties``` file as follows:
+```
+API_KEY=your_key_api
+```
+## TODO
+- [ ] Works offline by caching data into a database.
+- [ ] using Fragments in this app.
+- [ ] UI Improvements espicaially movie and TV show details screens.
