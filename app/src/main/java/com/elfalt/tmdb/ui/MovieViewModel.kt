@@ -1,5 +1,6 @@
 package com.elfalt.tmdb.ui
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.elfalt.tmdb.Repositories.RepositoryData
@@ -8,9 +9,15 @@ import com.elfalt.tmdb.Ret.MovieResponseDetails
 import com.elfalt.tmdb.Ret.TvResponseDetails
 import com.elfalt.tmdb.Ret.TvShow
 
-class MovieViewModel : ViewModel() {
+class MovieViewModel(application: Application) : ViewModel() {
 
-    fun getMovies(type : String, tbool :Int) : LiveData<List<Movie>>{
+    init {
+        RepositoryData.initDatabase(application)
+    }
+
+
+
+    fun getMovies(type : String, tbool :Int) : LiveData<List<Movies>>{
         return RepositoryData.getMovies(type, tbool)
     }
 

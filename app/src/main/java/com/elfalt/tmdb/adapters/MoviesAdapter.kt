@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.Movie
 import com.elfalt.tmdb.ui.MovieDetailsActivity
+import com.elfalt.tmdb.ui.Movies
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list_movies_content.view.*
 
-class MoviesAdapter(val moviesList : List<Movie>) :
+class MoviesAdapter(val moviesList : List<Movies>) :
     RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {

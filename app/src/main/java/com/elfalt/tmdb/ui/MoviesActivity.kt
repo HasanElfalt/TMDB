@@ -2,18 +2,18 @@ package com.elfalt.tmdb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.elfalt.tmdb.AppConstants
 import com.elfalt.tmdb.adapters.MoviesAdapter
 import com.elfalt.tmdb.R
-import com.elfalt.tmdb.Ret.Movie
 import kotlinx.android.synthetic.main.activity_movies.*
 
 class MoviesActivity : AppCompatActivity() {
 
-    private lateinit var moviesViewModel: MovieViewModel
+    private val moviesViewModel : MovieViewModel by viewModels()
     private var tTemp:String = "popular"
     private var tbool : Int = 0
 
@@ -21,7 +21,7 @@ class MoviesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
 
-        moviesViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+//        moviesViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
         movieRecyclerView.layoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
 
@@ -57,7 +57,7 @@ class MoviesActivity : AppCompatActivity() {
         })
     }
 
-    private fun populateMovieRecycler(moviesList: List<Movie>) {
+    private fun populateMovieRecycler(moviesList: List<Movies>) {
 
         movieRecyclerView.adapter =
             MoviesAdapter(moviesList)
