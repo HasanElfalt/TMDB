@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.elfalt.tmdb.R
-import com.elfalt.tmdb.Ret.Movie
 import com.elfalt.tmdb.ui.MovieDetailsActivity
 import com.elfalt.tmdb.ui.Movies
 import com.squareup.picasso.Picasso

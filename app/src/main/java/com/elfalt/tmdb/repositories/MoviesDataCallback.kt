@@ -1,6 +1,6 @@
-package com.elfalt.tmdb.Repositories
+package com.elfalt.tmdb.repositories
 
-import com.elfalt.tmdb.Ret.Movie
+import com.elfalt.tmdb.remoteSource.Movie
 
 interface MoviesDataCallback {
 

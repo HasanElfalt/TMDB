@@ -3,8 +3,8 @@ package com.elfalt.tmdb.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.elfalt.tmdb.Repositories.RepositoryData
-import com.elfalt.tmdb.Ret.MovieResponseDetails
+import com.elfalt.tmdb.repositories.RepositoryData
+import com.elfalt.tmdb.remoteSource.MovieResponseDetails
 
 class MovieDetailsViewModel(application: Application) : AndroidViewModel(application) {
 

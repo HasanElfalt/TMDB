@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.elfalt.tmdb.R
-import com.elfalt.tmdb.Ret.TvShow
+import com.elfalt.tmdb.remoteSource.TvShow
 import com.elfalt.tmdb.ui.TvDetailsActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list_tv.view.*

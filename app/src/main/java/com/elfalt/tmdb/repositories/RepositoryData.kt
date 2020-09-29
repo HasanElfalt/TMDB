@@ -1,11 +1,11 @@
-package com.elfalt.tmdb.Repositories
+package com.elfalt.tmdb.repositories
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.elfalt.tmdb.AppConstants
-import com.elfalt.tmdb.Ret.*
+import com.elfalt.tmdb.remoteSource.*
 import com.elfalt.tmdb.localSource.AppDatabase
 import com.elfalt.tmdb.ui.Movies
 import retrofit2.Call

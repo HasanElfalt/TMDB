@@ -1,4 +1,4 @@
-package com.elfalt.tmdb.Ret
+package com.elfalt.tmdb.remoteSource
 
 data class MovieResponse(val results : List<Movie>)
 
