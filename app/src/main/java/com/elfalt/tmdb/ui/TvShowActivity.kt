@@ -2,7 +2,6 @@ package com.elfalt.tmdb.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,18 +11,17 @@ import com.elfalt.tmdb.R
 import com.elfalt.tmdb.Ret.*
 import com.elfalt.tmdb.adapters.TvShowAdapter
 import kotlinx.android.synthetic.main.activity_tv_show.*
-import retrofit2.Call
-import retrofit2.Response
+
 
 class TvShowActivity : AppCompatActivity() {
 
-    lateinit var viewModel : MovieViewModel
+    private lateinit var viewModel : TvShowsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_show)
 
-        viewModel = ViewModelProvider(this).get(MovieViewModel :: class.java)
+        viewModel = ViewModelProvider(this).get(TvShowsViewModel :: class.java)
 
         getRecyclerViewData(AppConstants.POPULAR)
         getRecyclerViewData(AppConstants.TOP_RATED)

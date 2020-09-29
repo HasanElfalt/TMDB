@@ -11,14 +11,14 @@ import kotlinx.android.synthetic.main.activity_movie_details.*
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-    private lateinit var movieViewModel : MovieViewModel
+    private lateinit var movieViewModel : MovieDetailsViewModel
     lateinit var movieId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
-        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+        movieViewModel = ViewModelProvider(this).get(MovieDetailsViewModel::class.java)
 
         movieId = intent.getStringExtra("id").toString()
 
