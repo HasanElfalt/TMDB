@@ -25,7 +25,7 @@ class TvDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tv_details)
 
-        tvId = intent.getStringExtra("id")
+        tvId = intent.getStringExtra("id").toString()
 
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         viewModel.getTvShowDetails(tvId).observe(this, Observer {

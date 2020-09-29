@@ -64,7 +64,7 @@ object RepositoryData {
 
             override fun onFailure(call: Call<MovieResponseDetails>, t: Throwable) {
 
-                Log.e("Failure",t.message)
+                Log.e("Failure",t.message.toString())
             }
 
         })
@@ -94,7 +94,7 @@ object RepositoryData {
 
             override fun onFailure(call: Call<TvResponse>, t: Throwable) {
 
-                Log.e("Failure",t.message)
+                Log.e("Failure",t.message.toString())
             }
 
         })
@@ -110,7 +110,7 @@ object RepositoryData {
 
         val call = apiInterface.getTvShowDetails(tvId, AppConstants.API_KEY)
 
-        call.enqueue(object : retrofit2.Callback<TvResponseDetails> {
+        call.enqueue(object : Callback<TvResponseDetails> {
 
             override fun onResponse(
                 call: Call<TvResponseDetails>,
@@ -125,7 +125,7 @@ object RepositoryData {
 
             override fun onFailure(call: Call<TvResponseDetails>, t: Throwable) {
 
-                Log.e("Failure",t.message)
+                Log.e("Failure",t.message.toString())
             }
 
         })

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_movies.*
 
 class MoviesActivity : AppCompatActivity() {
 
-    private val moviesViewModel : MovieViewModel by viewModels()
+    private lateinit var moviesViewModel : MovieViewModel
     private var tTemp:String = "popular"
     private var tbool : Int = 0
 
@@ -21,7 +21,7 @@ class MoviesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
 
-//        moviesViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+        moviesViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
         movieRecyclerView.layoutManager = GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false)
 

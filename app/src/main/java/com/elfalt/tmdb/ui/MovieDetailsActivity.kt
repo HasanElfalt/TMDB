@@ -20,7 +20,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
-        movieId = intent.getStringExtra("id")
+        movieId = intent.getStringExtra("id").toString()
 
         movieViewModel.getMovieDetails(movieId).observe(this, Observer {
 

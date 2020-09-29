@@ -1,6 +1,7 @@
 package com.elfalt.tmdb.ui
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.elfalt.tmdb.Repositories.RepositoryData
@@ -9,7 +10,7 @@ import com.elfalt.tmdb.Ret.MovieResponseDetails
 import com.elfalt.tmdb.Ret.TvResponseDetails
 import com.elfalt.tmdb.Ret.TvShow
 
-class MovieViewModel(application: Application) : ViewModel() {
+class MovieViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         RepositoryData.initDatabase(application)
